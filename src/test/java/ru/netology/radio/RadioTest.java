@@ -4,6 +4,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
+    @Test
+    public void SetNumber() {
+        Radio radio = new Radio(20);
+
+        radio.setCurrentNumber(15);
+
+        int expected = 15;
+        int actual = radio.getCurrentNumber();
+
+        Assertions.assertEquals(expected, actual);
+    }
 
     @Test
     public void shouleSetNumber8() {
@@ -194,12 +205,12 @@ public class RadioTest {
     }
 
     @Test
-    public void shouleSetVolume28() {
+    public void shouleSetVolume50() {
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(28);
-
-        int expected = 28;
+        radio.setCurrentVolume(50);
+        radio.setNextVolume();
+        int expected = 51;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
