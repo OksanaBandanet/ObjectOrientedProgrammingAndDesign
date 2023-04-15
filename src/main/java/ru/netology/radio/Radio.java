@@ -2,67 +2,47 @@ package ru.netology.radio;
 
 public class Radio {
 
-
-    private int maxNumber = 9;
-    private int minNumber = 0;
-    private int currentNumber = minNumber;
-
+    private int maxStation = 9;
+    private int minStation = 0;
+    private int number = minStation;
     private int maxVolume = 100;
     private int minVolume = 0;
-    private int currentVolume = minVolume;
-    private int Number;
-    private int Volume;
+    private int volume = minVolume;
+    private int currentNumber;
+    private int currentVolume;
 
-    public Radio(int CountStation) {
-        minNumber = 0;
-        maxNumber = CountStation - 1;
-        currentNumber = Number;
+    public Radio() {
+
+    }
+
+    public Radio(int stationsCount) {
+        minStation = 0;
+        this.maxStation = stationsCount - 1;
+        number = currentNumber;
+
         this.maxVolume = maxVolume;
         this.minVolume = minVolume;
-        currentVolume = Volume;
+        volume = currentVolume;
     }
 
     public int getCurrentNumber() {
-        return Number;
+        return currentNumber;
     }
 
     public void setCurrentNumber(int currentNumber) {
-        if (currentNumber < minNumber) {
+        if (currentNumber < minStation) {
             return;
         }
-        if (currentNumber > maxNumber) {
+        if (currentNumber > maxStation) {
             return;
         }
         this.currentNumber = currentNumber;
     }
 
-    public void setNextNumber() {
-        if (currentNumber < maxNumber) {
-            currentNumber = currentNumber + 1;
-        } else {
-            currentNumber = minNumber;
-        }
-    }
-
-    public void setPrevNumber() {
-        if (currentNumber > minNumber) {
-            currentNumber = currentNumber - 1;
-        } else {
-            currentNumber = maxNumber;
-        }
-    }
-
-    public void setToMaxNumber() {
-        currentNumber = maxNumber;
-    }
-
-    public void setToMinNumber() {
-        currentNumber = minNumber;
-    }
-
     public int getCurrentVolume() {
-        return Volume;
+        return currentVolume;
     }
+
 
     public void setCurrentVolume(int currentVolume) {
         if (currentVolume < minVolume) {
@@ -73,6 +53,32 @@ public class Radio {
         }
         this.currentVolume = currentVolume;
     }
+
+
+    public void setNextNumber() {
+        if (currentNumber < maxStation) {
+            currentNumber = currentNumber + 1;
+        } else {
+            currentNumber = minStation;
+        }
+    }
+
+    public void setPrevNumber() {
+        if (currentNumber > minStation) {
+            currentNumber = currentNumber - 1;
+        } else {
+            currentNumber = maxStation;
+        }
+    }
+
+    public void setToMaxNumber() {
+        currentNumber = maxStation;
+    }
+
+    public void setToMinNumber() {
+        currentNumber = minStation;
+    }
+
 
     public void setNextVolume() {
         if (currentVolume < maxVolume) {
@@ -98,4 +104,3 @@ public class Radio {
         currentVolume = minVolume;
     }
 }
-
